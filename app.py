@@ -21,6 +21,10 @@ def startup():
         # Print error but allow server to start (so team can inspect logs)
         print("Error loading model/vectorizer at startup:", e)
 
+@app.get("/")
+def root():
+    return {"message": "AI Model API is running! Use POST /predict"}
+
 @app.get("/health")
 def health():
     return {"status": "ok"}
